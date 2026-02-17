@@ -83,11 +83,9 @@ PyTurnstile provides two ways to validate tokens:
 ```python
 from pyturnstile import Turnstile
 
-# Initialize with your secret key
-turnstile = Turnstile(secret="your-secret-key")
+turnstile = Turnstile(secret="your-secret-key") # Initialize with your secret key
 
-# Validate a token (asynchronously)
-response = await turnstile.async_validate(token="user-token-from-frontend")
+response = await turnstile.async_validate(token="user-token-from-frontend") # Validate a token (asynchronously)
 
 # or validate synchronously
 # response = turnstile.validate(token="user-token-from-frontend")
@@ -101,11 +99,10 @@ if response.success:
 ```python
 from pyturnstile import validate, async_validate
 
-# Validate a token (asynchronously)
 response = await async_validate(
     token="user-token-from-frontend",
     secret="your-secret-key"
-)
+)  # Validate a token (asynchronously)
 
 # or validate synchronously
 # response = validate(

@@ -41,7 +41,7 @@ class TurnstileResponse:
     success: bool
     """Boolean indicating if validation was successful"""
 
-    def __init__(self, data: dict):
+    def __init__(self, data: dict) -> None:
         """
         Initialize the TurnstileResponse from the API response data.
         Args:
@@ -55,11 +55,30 @@ class TurnstileResponse:
         self.metadata = data.get("metadata", {})
         self.success = data.get("success", False)
 
-    def __str__(self):
-        return f"TurnstileValidationResponse(success={self.success}, action={self.action}, hostname={self.hostname}, error_codes={self.error_codes})"
+    def __str__(self) -> str:
+        return f"TurnstileResponse(success={self.success}, action={self.action}, hostname={self.hostname}, error_codes={self.error_codes})"
 
     def __repr__(self) -> str:
         return self.__str__()
+
+    def __bool__(self) -> bool:
+        return self.success
+
+    def to_dict(self) -> dict:
+        """Convert the TurnstileResponse to a dictionary."""
+        return {
+            "success": self.success,
+            "action": self.action,
+            "cdata": self.cdata,
+            "challenge_ts": self.challenge_ts,
+            "error_codes": self.error_codes,
+            "hostname": self.hostname,
+            "metadata": self.metadata,
+        }
+
+    def model_dump(self) -> dict:
+        """Alias for to_dict() to match common naming conventions."""
+        return self.to_dict()
 
 
 async def async_validate(
