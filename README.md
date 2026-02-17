@@ -42,7 +42,7 @@ sequenceDiagram
     Cloudflare-->>Frontend: 2. Return token
     Frontend->>Backend: 3. Submit form + token
 
-    rect rgb(59, 83, 126)
+    rect rgb(14, 165, 233)
         Note over Backend,Cloudflare: 🔍 PyTurnstile handles this
         Backend->>Cloudflare: 4. Verify token
         Cloudflare-->>Backend: 5. Valid ✅ / Invalid ❌
