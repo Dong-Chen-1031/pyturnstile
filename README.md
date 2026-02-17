@@ -1,6 +1,6 @@
 <div align="center">
  <h1>PyTurnstile</h1>
- <img src="https://raw.githubusercontent.com/dong-chen-1031/pyturnstile/main/img/logo.png" width="300" alt="Cloudflare Turnstile widget" />
+ <img src="https://github.com/Dong-Chen-1031/pyturnstile/blob/main/img/logo.png?raw=true" width="300" alt="Cloudflare Turnstile widget" />
  
  <p>A Python library for validating <a href="https://developers.cloudflare.com/turnstile/">Cloudflare Turnstile</a> tokens with async and sync support  for Python.</p>
 
