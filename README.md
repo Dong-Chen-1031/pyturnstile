@@ -101,7 +101,7 @@ if response.success:
 ### Optional Parameters
 
 > [!NOTE]
-> For more details on all available parameters, see the [Cloudflare Turnstile documentation](https://developers.cloudflare.com/turnstile/get-started/server-side-validation/#required-parameters)
+> For more details on all available parameters, see the [Cloudflare documentation](https://developers.cloudflare.com/turnstile/get-started/server-side-validation/#required-parameters)
 
 ```python
 response = turnstile.validate(
@@ -117,7 +117,7 @@ response = turnstile.validate(
 ### Response Object
 
 > [!NOTE]
-> For more details on all response fields, see the [Cloudflare Turnstile documentation](https://developers.cloudflare.com/turnstile/get-started/server-side-validation/#response-fields)
+> For more details on all response fields, see the [Cloudflare documentation](https://developers.cloudflare.com/turnstile/get-started/server-side-validation/#response-fields)
 
 The `TurnstileResponse` object contains:
 
