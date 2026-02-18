@@ -1,6 +1,6 @@
 [project]
 name = "pyturnstile"
-version = "0.3.0"
+version = "0.4.0"
 description = "A Python library for validating Cloudflare Turnstile tokens with async and sync support"
 readme = "README_PYPI.md"
 requires-python = ">=3.8"
