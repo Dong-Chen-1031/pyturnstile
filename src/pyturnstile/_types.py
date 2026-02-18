@@ -94,10 +94,24 @@ class TurnstileResponse:
         return self.to_dict()
 
     def __str__(self) -> str:
-        return f"TurnstileResponse(success={self.success}, action={self.action}, hostname={self.hostname}, error_codes={self.error_codes})"
+        return (
+            "TurnstileResponse("
+            f"success={self.success}, "
+            f"action={self.action}, "
+            f"hostname={self.hostname}, "
+            f"error_codes={self.error_codes}"
+            ")"
+        )
 
     def __repr__(self) -> str:
         return self.__str__()
 
     def __bool__(self) -> bool:
         return self.success
+
+
+__all__ = [
+    "TurnstileResponse",
+    "TurnstileValidationError",
+    "TurnstileErrorCodes",
+]
