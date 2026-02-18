@@ -1,7 +1,7 @@
 """PyTurnstile: A Python library for validating Cloudflare Turnstile tokens."""
 
-from .core import TurnstileResponse, TurnstileValidationError, async_validate, validate
-from .turnstile import Turnstile
+from ._core import TurnstileResponse, TurnstileValidationError, async_validate, validate
+from ._turnstile import Turnstile
 
 __all__ = [
     "Turnstile",

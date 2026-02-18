@@ -1,7 +1,8 @@
 <div align="center">
  <h1>PyTurnstile</h1>
- <img src="https://github.com/Dong-Chen-1031/pyturnstile/blob/main/img/logo.png?raw=true" width="300" alt="Cloudflare Turnstile widget" />
- 
+ <a href="https://pypi.org/project/pyturnstile" target="_blank">
+    <img src="https://github.com/Dong-Chen-1031/pyturnstile/blob/main/img/logo.png?raw=true" width="300" alt="Cloudflare Turnstile widget" />
+ </a>
  <p>A Python library for validating <a href="https://developers.cloudflare.com/turnstile/">Cloudflare Turnstile</a> tokens with both async and sync support.</p>
 
 <a href="https://github.com/dong-chen-1031/pyturnstile/actions?query=workflow%3ATest+event%3Apush+branch%3Amain" target="_blank">

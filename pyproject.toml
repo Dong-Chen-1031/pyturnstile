@@ -1,6 +1,6 @@
 [project]
 name = "PyTurnstile"
-version = "0.1.0"
+version = "0.2.0"
 description = "A Python library for validating Cloudflare Turnstile tokens with async and sync support"
 readme = "README.md"
 requires-python = ">=3.8"
@@ -27,6 +27,7 @@ classifiers = [
 
 dependencies = [
     "httpx>=0.23.0",
+    "tenacity>=9.0.0",
 ]
 
 [project.urls]

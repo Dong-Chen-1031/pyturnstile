@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from typing import Optional
 
-from . import core
+from . import _core
 
 
 class Turnstile:
@@ -19,35 +19,46 @@ class Turnstile:
         async_validate: Asynchronously validate a Turnstile token.
 
     Example:
+        Asynchronous usage:
+        >>> turnstile = Turnstile(secret="your-secret-key")
+        >>> response = await turnstile.async_validate(token="user-token")
+        >>> if response.success:
+        ...     print("Valid token")
+
         Synchronous usage:
         >>> turnstile = Turnstile(secret="your-secret-key")
         >>> response = turnstile.validate(token="user-token")
         >>> if response.success:
         ...     print("Valid token")
 
-        Asynchronous usage:
-        >>> turnstile = Turnstile(secret="your-secret-key")
-        >>> response = await turnstile.async_validate(token="user-token")
-        >>> if response.success:
-        ...     print("Valid token")
     """
 
     def __init__(self, secret: str):
+        """
+        Initialize the Turnstile client with your secret key.
+        Args:
+            secret: Your widget's secret key from the Cloudflare dashboard.
+        """
         self.secret = secret
 
     def validate(
         self,
         token: str,
-        remoteip: Optional[str] = None,
+        *,
         idempotency_key: Optional[str] = None,
+        expected_remoteip: Optional[str] = None,
+        expected_hostname: Optional[str] = None,
+        expected_action: Optional[str] = None,
         timeout: int = 10,
-    ) -> core.TurnstileResponse:
+    ) -> _core.TurnstileResponse:
         """
         Validate a Turnstile token with Cloudflare's API.
         Args:
             token: The token from the client-side widget
-            remoteip: (Optional) The visitor's IP address
             idempotency_key: (Optional) UUID for retry protection
+            expected_remoteip: (Optional) The visitor's IP address that the challenge response must match
+            expected_hostname: (Optional) The hostname that the challenge response must match.
+            expected_action: (Optional) The action identifier that the challenge must match.
             timeout: (Optional) Timeout for the API request in seconds
         Returns:
             TurnstileResponse: The response from the Turnstile API
@@ -56,21 +67,34 @@ class Turnstile:
 
         For more details on all available parameters, see the [Cloudflare documentation](https://developers.cloudflare.com/turnstile/get-started/server-side-validation/#required-parameters)
         """
-        return core.validate(token, self.secret, remoteip, idempotency_key, timeout)
+        return _core.validate(
+            token=token,
+            secret=self.secret,
+            expected_remoteip=expected_remoteip,
+            expected_hostname=expected_hostname,
+            expected_action=expected_action,
+            idempotency_key=idempotency_key,
+            timeout=timeout,
+        )
 
     async def async_validate(
         self,
         token: str,
-        remoteip: Optional[str] = None,
+        *,
         idempotency_key: Optional[str] = None,
+        expected_remoteip: Optional[str] = None,
+        expected_hostname: Optional[str] = None,
+        expected_action: Optional[str] = None,
         timeout: int = 10,
-    ) -> core.TurnstileResponse:
+    ) -> _core.TurnstileResponse:
         """
         Asynchronously validate a Turnstile token with Cloudflare's API.
         Args:
             token: The token from the client-side widget
-            remoteip: (Optional) The visitor's IP address
             idempotency_key: (Optional) UUID for retry protection
+            expected_remoteip: (Optional) The visitor's IP address that the challenge response must match
+            expected_hostname: (Optional) The hostname that the challenge response must match.
+            expected_action: (Optional) The action identifier that the challenge must match.
             timeout: (Optional) Timeout for the API request in seconds
         Returns:
             TurnstileResponse: The response from the Turnstile API
@@ -79,8 +103,14 @@ class Turnstile:
 
         For more details on all available parameters, see the [Cloudflare documentation](https://developers.cloudflare.com/turnstile/get-started/server-side-validation/#required-parameters)
         """
-        return await core.async_validate(
-            token, self.secret, remoteip, idempotency_key, timeout
+        return await _core.async_validate(
+            token=token,
+            secret=self.secret,
+            expected_remoteip=expected_remoteip,
+            expected_hostname=expected_hostname,
+            expected_action=expected_action,
+            idempotency_key=idempotency_key,
+            timeout=timeout,
         )
 
 
