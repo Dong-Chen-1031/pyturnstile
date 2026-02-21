@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "pyturnstile"
-version = "0.5.0"
+version = "0.5.1"
 description = "A Python library for validating Cloudflare Turnstile tokens with async and sync support"
 readme = "README_PYPI.md"
 requires-python = ">=3.8"
