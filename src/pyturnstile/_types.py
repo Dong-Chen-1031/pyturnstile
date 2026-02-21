@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from typing import Any, Literal, TypedDict, Union
+from typing import Any, Dict, List, Literal, TypedDict, Union
 
 
 class TurnstileValidationError(Exception):
@@ -34,9 +34,9 @@ _TurnstileResponseDictCF = TypedDict(
         "action": str,
         "cdata": str,
         "challenge_ts": str,
-        "error-codes": Union[list[TurnstileErrorCodes], list[str]],
+        "error-codes": Union[List[TurnstileErrorCodes], List[str]],
         "hostname": str,
-        "metadata": dict[str, Any],
+        "metadata": Dict[str, Any],
     },
 )
 """Type definition for the TurnstileResponse form Cloudflare's API response."""
@@ -48,9 +48,9 @@ TurnstileResponseDict = TypedDict(
         "action": str,
         "cdata": str,
         "challenge_ts": str,
-        "error_codes": Union[list[TurnstileErrorCodes], list[str]],
+        "error_codes": Union[List[TurnstileErrorCodes], List[str]],
         "hostname": str,
-        "metadata": dict[str, Any],
+        "metadata": Dict[str, Any],
     },
 )
 """Type definition for the TurnstileResponse dictionary representation."""
